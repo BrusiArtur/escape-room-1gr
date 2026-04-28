@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Portale Animatori - 1GR MEDIE</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#eef2f6;
+    color:#1b2a41;
+}
+
+/* LOGIN */
+#loginBox{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#0b1f3a,#142d4c);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-card{
+    background:#fff;
+    padding:25px;
+    width:340px;
+    border-radius:10px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#ff8c00;
+    border:none;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* SIDEBAR */
+.sidebar{
+    position:fixed;
+    left:0;
+    top:0;
+    height:100%;
+    width:280px;
+    background:#0b1f3a;
+    color:#fff;
+    overflow-y:auto;
+}
+
+.sidebar h3{
+    text-align:center;
+    padding:15px;
+}
+
+.item{
+    padding:12px 15px;
+    cursor:pointer;
+}
+
+.item:hover{
+    background:#132c4d;
+    border-left:4px solid #ff8c00;
+}
+
+.sub{
+    display:none;
+    background:#10243f;
+}
+
+.sub .item{
+    padding-left:35px;
+    font-size:14px;
+}
+
+/* CONTENT */
+.content{
+    margin-left:280px;
+    padding:25px;
+}
+
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+h1,h2{
+    color:#0b1f3a;
+}
+
+.title{
+    margin-top:15px;
+    font-weight:bold;
+    color:#ff8c00;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="loginBox">
+<div class="login-card">
+<h2>Accesso Portale</h2>
+<input id="user" placeholder="Username">
+<input id="pass" type="password" placeholder="Password">
+<button onclick="login()">Accedi</button>
+</div>
+</div>
+
+<!-- PORTALE -->
+<div id="portal" style="display:none;">
+
+<div class="sidebar">
+
+<h3>1GR MEDIE<br>PORTALE</h3>
+
+<div class="item" onclick="show('home')">Home</div>
+<div class="item" onclick="show('contatti')">Contatti</div>
+
+<div class="item" onclick="toggle()">Escape Room ▾</div>
+
+<div id="sub" class="sub">
+<div class="item" onclick="show('scheda')">Scheda Tecnica</div>
+<div class="item" onclick="show('sole')">Stanza Sole</div>
+<div class="item" onclick="show('luna')">Stanza Luna</div>
+<div class="item" onclick="show('acqua')">Stanza Acqua</div>
+<div class="item" onclick="show('fuoco')">Stanza Fuoco</div>
+<div class="item" onclick="show('finale')">Fase Finale</div>
+<div class="item" onclick="show('animatori')">Ruolo Degli Animatori</div>
+</div>
+
+</div>
+
+<div class="content">
+
+<div id="home" class="card">
+<h1>Benvenuto nel portale animatori 1GR MEDIE</h1>
+<p>Portale consultativo per Escape Room educativa “Il Cantico Ritrovato”.</p>
+</div>
+
+<div id="contatti" class="card" style="display:none;">
+<h2>Contatti</h2>
+<p>Brusi Artur<br>+39 331 424 1141<br>brusiartur@gmail.com</p>
+</div>
+
+<!-- ================= SCHEDA COMPLETA ================= -->
+<div id="scheda" class="card" style="display:none;">
+<h2>SCHEDA TECNICA: ESCAPE ROOM “Il Cantico Ritrovato”</h2>
+
+<div class="title">1. DESCRIZIONE</div>
+<p>Escape room educativa cooperativa basata sul Cantico delle Creature. 4 ambienti tematici + fase finale collaborativa.</p>
+
+<div class="title">2. UBICAZIONE</div>
+<p>4 stanze tematiche indipendenti: Stanza del Sole </p>
+<p>	- Stanza della Luna</p>
+<p>	- Stanza dell’Acqua</p>
+<p>	- Stanza del Fuoco</p>
+<p>1 spazio finale comune (atrio o sala grande)</p>
+ 
+
+<div class="title">3. DURATA</div>
+<p>45–60 minuti totali.</p>
+
+<div class="title">4. GRUPPI</div>
+<p>4 gruppi, 1 stanza ciascuno.</p>
+<p>Ogni gruppo lavora in una stanza differente.</p>
+<p>Ogni gruppo ricostruisce una sola sezione del Cantico.</p>
+<p>Ogni gruppo è seguito preferibilmente da un animatore dedicato</p>
+
+<div class="title">5. MATERIALI</div>
+<p> - 4 lucchetti a combinazione (uno per stanza o per fase interna)</p>
+<p> - Scatole di cartone e/o cofanetti rigidi<p>
+<p> - Frammenti stampati del Cantico delle Creature<p>
+<p> - Schede enigma plastificate o stampate<p>
+<p> - Elementi scenografici coerenti con ciascuna stanza<p>
+<p> - Pennarelli, nastro adesivo, cartoncini<p>
+<p> - Corde con nodi (elemento simbolico ricorrente)<p>
+<p> - Fogli con indizi e soluzioni parziali<p>
+
+
+</div>
+
+<!-- ================= STANZA SOLE ================= -->
+<div id="sole" class="card" style="display:none;">
+<h2>STANZA DEL SOLE</h2>
+
+<div class="title">ENIGMA 1</div>
+<div class="title">Oggetti</div>
+<p>I partecipanti trovano immagini di animali con caratteristiche differenti (es. gallina, lupo, ragno, serpente). Ogni animale è associato implicitamente a un numero basato sulle zampe.</p>
+
+<div class="title">Obiettivo</div>
+<p>Individuare il criterio logico (numero di zampe) e ottenere una sequenza numerica utile per aprire un lucchetto.</p>
+
+<div class="title">Output</div>
+<p>Apertura lucchetto.</p>
+
+<div class="title">ENIGMA 2</div>
+<div class="title">Oggetti</div>
+<p>Nella scatola sono presenti diverse immagini che rappresentano fonti di luce (naturali e artificiali). Ogni elemento contiene un numero nascosto + un frammento.</p>
+
+<div class="title">Obiettivo</div>
+<p>Ordinare gli elementi in base all’intensità luminosa reale (dal più intenso al meno intenso) per ricavare una sequenza numerica che indica la pagina di un libro (pag. …).</p>
+
+<div class="title">Output</div>
+<p>Codice pagina libro.</p>
+
+<div class="title">ENIGMA 3</div>
+<div class="title">Oggetti</div>
+<p>Alla pagina ottenuta con la soluzione dell’enigma 2 si trova una parola cerchiata e la frase “prossima pagina: …”.</p>
+<div class="title">Obiettivo</div>
+<p>Ricostruire una frase “parola d’ordine” da comunicare all’educatore, che consegnerà l’ultimo frammento.</p>
+
+<div class="title">Output</div>
+<p>Frammento Cantico.</p>
+
+<div class="title">RICOSTRZIONE</div>
+<p>I frammenti non sono in ordine: devono essere ricostruiti e, se necessario, tagliati e ricomposti.</p>
+</div>
+
+<!-- ================= STANZA LUNA ================= -->
+<div id="luna" class="card" style="display:none;">
+<h2>STANZA DELLA LUNA</h2>
+
+<div class="title">ENIGMA 1</div>
+<div class="title">Oggetti</div>
+<p>Elementi visivi sul soffitto:</p>
+<p>	- Stelle</p>
+<p>	- Pianeti</p>
+<p>	- Astronauti</p>
+<p>	- Razzi</p>
+<p>Accanto a un lucchetto è presente un foglio guida con i quattro simboli in ordine preciso.</p>
+
+<div class="title">Obiettivo</div>
+<p>Contare il numero esatto di ciascun elemento e inserirlo nel lucchetto seguendo l’ordine del foglio guida.</p>
+
+<div class="title">Output</div>
+<p>Codice lucchetto.</p>
+
+<div class="title">ENIGMA 2</div>
+<div class="title">Oggetti</div>
+<p>Quattro cartoncini con eventi dell’esplorazione spaziale:</p>
+<p>	- Galileo Galilei</p>
+<p>	- Sputnik (1957)</p>
+<p>	- Apollo 11 Moon Landing</p>
+<p>	- Artemis II</p>
+<p>Ogni cartoncino riporta un numero.</p>
+
+<div class="title">Obiettivo</div>
+<p>Disporre gli eventi in ordine cronologico corretto e leggere i codici associati.</p>
+
+<div class="title">Output</div>
+<p>Pagina libro.</p>
+
+<div class="title">ENIGMA 3</div>
+<div class="title">Oggetti</div>
+<p>Alla pagina ottenuta con la soluzione dell’enigma 2 si trova una parola cerchiata e la frase “prossima pagina: …”.</p>
+<div class="title">Obiettivo</div>
+<p>Ricostruire una frase “parola d’ordine” da comunicare all’educatore, che consegnerà l’ultimo frammento.</p>
+
+<div class="title">Output</div>
+<p>Frammento Cantico.</p>
+
+<div class="title">RICOSTRZIONE</div>
+<p>I frammenti non sono in ordine: devono essere ricostruiti e, se necessario, tagliati e ricomposti.</p>
+</div>
+
+<!-- ================= STANZA ACQUA ================= -->
+<div id="acqua" class="card" style="display:none;">
+<h2>STANZA DELL’ACQUA</h2>
+
+<div class="title">ENIGMA 1</div>
+<div class="title">Oggetti</div>
+<p>I partecipanti trovano immagini di animali con caratteristiche differenti (es. gallina, lupo, ragno, serpente). Ogni animale è associato implicitamente a un numero basato sulle zampe.</p>
+
+<div class="title">Obiettivo</div>
+<p>Individuare il criterio logico (numero di zampe) e ottenere una sequenza numerica utile per aprire un lucchetto.</p>
+
+<div class="title">Output</div>
+<p>Apertura lucchetto.</p>
+
+<div class="title">ENIGMA 2</div>
+<div class="title">Oggetti</div>
+<p>Nella scatola sono presenti Immagini di distese d’acqua naturali e artificiali, ciascuna con numero nascosto + frammento.</p>
+
+<div class="title">Obiettivo</div>
+<p>Ordinare in base alla quantità/dimensione d’acqua e ricavare una sequenza numerica per la pagina del libro (pag. …).</p>
+
+<div class="title">Output</div>
+<p>Codice pagina libro.</p>
+
+<div class="title">ENIGMA 3</div>
+<div class="title">Oggetti</div>
+<p>Alla pagina ottenuta con la soluzione dell’enigma 2 si trova una parola cerchiata e la frase “prossima pagina: …”.</p>
+<div class="title">Obiettivo</div>
+<p>Ricostruire una frase “parola d’ordine” da comunicare all’educatore, che consegnerà l’ultimo frammento.</p>
+
+<div class="title">Output</div>
+<p>Frammento Cantico.</p>
+
+<div class="title">RICOSTRZIONE</div>
+<p>I frammenti non sono in ordine: devono essere ricostruiti e, se necessario, tagliati e ricomposti.</p>
+</div>
+
+<!-- ================= STANZA FUOCO ================= -->
+<div id="fuoco" class="card" style="display:none;">
+<h2>STANZA DEL FUOCO</h2>
+
+<div class="title">ENIGMA 1</div>
+<div class="title">Oggetti</div>
+<p>I partecipanti trovano immagini di animali con caratteristiche differenti (es. gallina, lupo, ragno, serpente). Ogni animale è associato implicitamente a un numero basato sulle zampe.</p>
+
+<div class="title">Obiettivo</div>
+<p>Individuare il criterio logico (numero di zampe) e ottenere una sequenza numerica utile per aprire un lucchetto.</p>
+
+<div class="title">Output</div>
+<p>Apertura lucchetto.</p>
+
+<div class="title">ENIGMA 2</div>
+<div class="title">Oggetti</div>
+<p>Nella scatola sono presenti Immagini di fiamme (dal fiammifero ai grandi incendi), ciascuna con numero nascosto + frammento.</p>
+
+<div class="title">Obiettivo</div>
+<p>Ordinare in base all’intensità del fuoco e ricavare la sequenza numerica della pagina (pag. …).</p>
+
+<div class="title">Output</div>
+<p>Codice pagina libro.</p>
+
+<div class="title">ENIGMA 3</div>
+<div class="title">Oggetti</div>
+<p>Alla pagina ottenuta con la soluzione dell’enigma 2 si trova una parola cerchiata e la frase “prossima pagina: …”.</p>
+<div class="title">Obiettivo</div>
+<p>Ricostruire una frase “parola d’ordine” da comunicare all’educatore, che consegnerà l’ultimo frammento.</p>
+
+<div class="title">Output</div>
+<p>Frammento Cantico.</p>
+
+<div class="title">RICOSTRZIONE</div>
+<p>I frammenti non sono in ordine: devono essere ricostruiti e, se necessario, tagliati e ricomposti.</p>
+</div>
+
+<!-- ================= FINALE ================= -->
+<div id="finale" class="card" style="display:none;">
+<h2>FASE FINALE</h2>
+
+
+<div class="title">SVOLGIMENTO</div>
+<p>I gruppi si riuniscono e:</p>
+<p>	- presentano la propria sezione ricostruita</p>
+<p>	- confrontano i testi</p>
+<p>	- collaborano per stabilire l’ordine corretto delle sezioni</p>
+
+<div class="title">OBBIETTIVO FINALE</div>
+ <p>Ricostruzione completa e corretta del Cantico delle Creature.</p>
+
+<div class="title">VERIFICA</div>
+<p>l'animatore referente verifica (con i ragazzi):</p>
+<p>	- correttezza delle singole sezioni</p>
+<p>	- coerenza dell’ordine finale</p>
+<p>	- completezza del testo</p>
+<p>	- Lettura finale ed eventuale spiegazione del Cantico completo.</p>
+
+
+</div>
+
+<!-- ================= RUOLO DEGLI ANIMATORI ================= -->
+<div id="animatori" class="card" style="display:none;">
+<h2>RUOLO DEGLI ANIMATORI</h2>
+
+<div class="title">Gli animatori hanno funzione di:</div>
+<p>	- supervisione del corretto svolgimento</p>
+<p>	- gestione dei tempi</p>
+<p>	- fornitura di indizi solo se necessario</p>
+<p>	- validazione delle soluzioni</p>
+<p>	- coordinamento della fase finale</p>
+
+</div>
+</div>
+</div>
+
+<script>
+
+function login(){
+let u=document.getElementById("user").value;
+let p=document.getElementById("pass").value;
+
+if((u==="animatore" && p==="bellafra2026") ||
+   (u==="educatore" && p==="bellafra2026")){
+    document.getElementById("loginBox").style.display="none";
+    document.getElementById("portal").style.display="block";
+}
+}
+
+function show(id){
+document.querySelectorAll(".card").forEach(c=>c.style.display="none");
+document.getElementById(id).style.display="block";
+}
+
+function toggle(){
+let s=document.getElementById("sub");
+s.style.display=(s.style.display==="block")?"none":"block";
+}
+
+</script>
+
+</body>
+</html>
